@@ -1,11 +1,11 @@
 # Circle APIs Node.js Library
 
-[![npm version](https://img.shields.io/npm/v/@circle-fin/circle-sdk)](https://www.npmjs.com/package/@circle-fin/circle-sdk)
-[![npm downloads](https://img.shields.io/npm/dm/@circle-fin/circle-sdk)](https://www.npmjs.com/package/@circle-fin/circle-sdk)
-
-
 The Circle Node library provides convenient access to the Circle API for
-applications written in server-side JavaScript. For the API reference, see the [Circle API docs](https://developers.circle.com/reference).
+applications written in server-side JavaScript.
+
+## Documentation
+
+See the [Circle API docs](https://developers.circle.com/reference/ping?lang=node) for Node.js.
 
 ## Requirements
 
@@ -36,36 +36,37 @@ const circle = new Circle(
 
 async function createSubscription() {
     const subscribeReq: SubscriptionRequest = {
-        endpoint: "https://example.org/handler/for/notifications"
+        endpoint: "https://742ef341af57c9.lhrtunnel.link"
     };
 
-    const subscribeResp = await circle.subscriptions.createSubscription(subscribeReq);
+    const subscribeResp = await circle.subscriptions.subscribe(subscribeReq);
     console.log(subscribeResp.data);
 }
 createSubscription();
 ```
 
 ## Development
-Clone this repo and install dependencies using 
+
+Clone this repo and install dependencies using
+
 ```sh
 yarn install
 ```
 
-1. Run the codegen command to generate the source code for this SDK from the `sdk.json` OpenAPI specification file:
+1. Run the codegen:
 
-    ```sh
-    yarn gen-sdk
-    ```
+   ```sh
+   yarn gen-sdk <sdk-version>      # e.g. yarn gen-sdk 0.1.1-beta.0
+   ```
 
 2. Run all tests:
 
-    ```bash
-    yarn test
-    ```
-
+   ```bash
+   yarn test
+   ```
 
 ## Contributions
 
-Please follow the [Conventional Commits][convencomms] format for all commits when creating a contributing pull request for this repo. 
+Please follow the [Conventional Commits][convencomms] format for all commits when creating a contributing pull request for this repo.
 
 [convencomms]: https://www.conventionalcommits.org/en/v1.0.0/
